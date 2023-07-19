@@ -8,10 +8,10 @@ public class CommerceRunner {
     public static void main(String[] args) {
         Commerce commerce = new Commerce();
 
-        commerce.add(new Bag());
+        commerce.add(new Bag(), 2);
         System.out.println(">> 가방 추가");
 
-        commerce.add(new Cup());
+        commerce.add(new Cup(), 2);
         System.out.println(">> 컵 추가");
 
         int totalPrice = commerce.calculateTotalPrice();
