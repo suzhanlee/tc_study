@@ -21,6 +21,8 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String itemNumber;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -30,8 +32,9 @@ public class Item {
 
     private SellingStatus sellingStatus;
 
-    public static Item create(String name, ItemType itemType, Integer price, SellingStatus sellingStatus) {
+    public static Item create(String itemNumber, String name, ItemType itemType, Integer price, SellingStatus sellingStatus) {
         Item item = new Item();
+        item.itemNumber = itemNumber;
         item.name = name;
         item.itemType = itemType;
         item.price = price;

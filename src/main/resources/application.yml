@@ -8,7 +8,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
-      password: root
+      password: 1234
       driver-class-name: com.mysql.cj.jdbc.Driver
 
 decorator:
@@ -30,7 +30,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
-      password: root
+      password: 1234
       driver-class-name: com.mysql.cj.jdbc.Driver
 
 ---
@@ -45,7 +45,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
-      password: root
+      password: 1234
       driver-class-name: com.mysql.cj.jdbc.Driver
 
   sql:
