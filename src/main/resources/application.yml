@@ -6,7 +6,7 @@ spring:
     open-in-view: false
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:4306/test
+      jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -28,7 +28,7 @@ spring:
     defer-datasource-initialization: true
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:4306/test
+      jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -43,7 +43,7 @@ spring:
     open-in-view: false
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:4306/test
+      jdbc-url: jdbc:mysql://localhost:9306/test
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
