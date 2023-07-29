@@ -22,11 +22,9 @@ public class ItemController {
     private final ItemService itemService;
     private final FindItemService findItemService;
 
-    @PostMapping(ITEM_V1_AVAILABLE)
+    @PostMapping(ITEM_V1)
     public void saveItem(@RequestBody @Validated SaveItemRq rq) {
-
         itemService.saveItem(rq);
-
     }
     @GetMapping(ITEM_V1)
     public FindAllItemListRs findAllItemList() {
