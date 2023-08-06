@@ -3,6 +3,7 @@ package com.tc.spring.domain.item.controller;
 import static com.tc.spring.domain.path.ApiPath.ITEM_V1;
 import static com.tc.spring.domain.path.ApiPath.ITEM_V1_AVAILABLE;
 
+import com.tc.spring.domain.global.ApiResponse;
 import com.tc.spring.domain.item.model.rq.SaveItemRq;
 import com.tc.spring.domain.item.model.rs.FindAllItemListRs;
 import com.tc.spring.domain.item.model.rs.FindAvailableItemListRs;
@@ -27,8 +28,8 @@ public class ItemController {
         itemService.saveItem(rq);
     }
     @GetMapping(ITEM_V1)
-    public FindAllItemListRs findAllItemList() {
-        return findItemService.findAllItemList();
+    public ApiResponse<FindAllItemListRs> findAllItemList() {
+        return ApiResponse.ok(findItemService.findAllItemList());
     }
 
     @GetMapping(ITEM_V1_AVAILABLE)

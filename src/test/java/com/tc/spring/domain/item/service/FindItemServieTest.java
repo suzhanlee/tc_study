@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -43,9 +44,6 @@ class FindItemServiceTest {
             STOP_SELLING);
         Item bag4 = Item.create("004", "구찌백", ItemType.BAG, 9_900_000, STOP_SELLING);
         itemRepository.saveAll(List.of(bag1, bag2, bag3, bag4));
-
-        List<SellingStatus> sellingStatusList = List.of(SELLING, SOLD_OUT);
-
         // when
         List<Item> list = findItemService.findAvailableItems();
 
@@ -69,7 +67,6 @@ class FindItemServiceTest {
             STOP_SELLING);
         Item bag4 = Item.create("004", "구찌백", ItemType.BAG, 9_900_000, STOP_SELLING);
 
-        List<SellingStatus> sellingStatusList = List.of(SELLING, SOLD_OUT);
         itemRepository.saveAll(List.of(bag1, bag2, bag3, bag4));
 
 

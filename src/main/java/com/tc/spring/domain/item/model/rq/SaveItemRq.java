@@ -16,7 +16,7 @@ public class SaveItemRq {
     @NotBlank
     private String name;
 
-    @NotNull
+    @NotNull(message = "itemType은 필수값입니다.")
     private ItemType itemType;
 
     @NotNull
