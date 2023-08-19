@@ -41,14 +41,11 @@ public class Reservation extends BaseEntity {
     private int humanCapacity;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ReservationStatus status;
 
     @Column(nullable = false)
     private Long payment;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "camp_log_id")
-    private CampLog campLog;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

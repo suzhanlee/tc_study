@@ -54,8 +54,4 @@ public class Member extends BaseEntity {
     @Column(nullable = false)
     private MemberStatus memberStatus;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "member_detail_id")
-    private MemberDetail memberDetail;
-
 }

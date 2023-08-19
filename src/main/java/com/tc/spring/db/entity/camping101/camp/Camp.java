@@ -61,22 +61,14 @@ public class Camp extends BaseCreateDateTimeEntity {
     @Column(nullable = false)
     private AnimalCapabilityType animalCapabilityType;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "camp_details_id")
-    private CampDetails campDetails; // -> 이것도 여기에 다 넣어도 되는지 애매하다
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "attach_file_id")
     private AttachFile firstImage;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "camp_location_id")
-    private CampLocation campLocation;
-
-    @OneToMany(mappedBy = "camp", cascade = CascadeType.REMOVE) // -> 애매
+    @OneToMany(mappedBy = "camp", cascade = CascadeType.REMOVE)
     private List<CampOpenDay> campOpenDayList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "camp", cascade = CascadeType.REMOVE) // -> 이거 애매하다
+    @OneToMany(mappedBy = "camp", cascade = CascadeType.REMOVE)
     private List<CampOpenSeason> campOpenSeasons = new ArrayList<>();
 
     @OneToMany(mappedBy = "camp", cascade = CascadeType.REMOVE)

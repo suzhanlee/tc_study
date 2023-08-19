@@ -50,9 +50,8 @@ public class ReservationLog extends BaseCreateDateTimeEntity {
     @Column(nullable = false)
     private String siteName;
 
-    // 예약 로그인지 예약 취소 로그인지 확인하려면, Reservation을 확인해야 하나?
-    // 아니면 여기서 ReservationStatus를 넣어야 하나
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ReservationStatus status;
 
 }

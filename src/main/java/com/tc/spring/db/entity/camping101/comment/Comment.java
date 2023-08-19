@@ -18,31 +18,37 @@ import javax.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.yaml.snakeyaml.comments.CommentType;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment extends BaseEntity {
 
-    // member를 삭제하면 comment도 삭제해야 하나?
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
     private Long commentId;
 
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Comment parent;
+
+    @OneToMany(mappedBy = "parent")
+    private List<Comment> children = new ArrayList<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "member_pk2_id")
+//    private Member member2;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "camp_log_id")
     private CampLog campLog;
-
-    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.REMOVE)
-    private List<ReComment> reComments = new ArrayList<>();
-
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
-
-
 }

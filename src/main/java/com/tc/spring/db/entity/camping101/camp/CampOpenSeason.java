@@ -28,5 +28,4 @@ public class CampOpenSeason {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "camp_id")
     private Camp camp;
-
 }

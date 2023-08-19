@@ -5,6 +5,7 @@ import com.tc.spring.db.entity.camping101.bookmark.BookMark;
 import com.tc.spring.db.entity.camping101.comment.Comment;
 import com.tc.spring.db.entity.camping101.member.Member;
 import com.tc.spring.db.entity.camping101.regtag.RecTag;
+import com.tc.spring.db.entity.camping101.reservation.Reservation;
 import com.tc.spring.db.entity.camping101.site.Site;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -49,13 +50,13 @@ public class CampLog extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id")
     private Site site;
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "camp_log_details_id")
-    private CampLogDetails campLogDetails; // -> 이런 정보들을 한 엔티티에 넣어도 되나? 좀 더 분리해야할까?
 
     @OneToMany(mappedBy = "campLog")
     private List<RecTag> recTags = new ArrayList<>();

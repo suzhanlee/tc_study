@@ -61,10 +61,6 @@ public class Site extends BaseEntity {
     @Column(nullable = false)
     private int price;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "site_policy_id")
-    private SitePolicy sitePolicy;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "camp_id")
     private Camp camp;
